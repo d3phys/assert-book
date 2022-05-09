@@ -135,6 +135,48 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="hello-world"><a class="header" href="#hello-world">Hello, World!</a></h1>
+<p>Now that you’ve installed Assert compilers, let’s write your first Assert program. 
+It’s traditional when learning a new language to write a little program that prints 
+the text <code>Hello, world!</code> to the screen, but we can't write it because Assert language
+does not support string literals <code>:D</code></p>
+<p>That's why we will write program, that prints <code>448378203247</code> or <code>0x68656c6c6f</code>.
+What means <code>olleh</code> (<code>hello</code> stored in integer variable in <em>little-endian mode</em>).</p>
+<p>Create and edit <code>hello.ass</code> file:</p>
+<pre><code class="language-console">$ touch hello.ass
+$ vi hello.ass
+</code></pre>
+<p>Write the following code:</p>
+<pre><code>dump main()
+{
+        assert(out(448378203247));
+        return 0;
+}
+</code></pre>
+<p>Now let's compile <code>hello.ass</code> file.
+At first we have to compile <a href="appendix-abstract-syntax-tree.html">AST</a>:</p>
+<pre><code class="language-console">$ ./tr hello.ass hello.tree
+</code></pre>
+<p>Than compile the binary with <code>./cum</code>:</p>
+<pre><code class="language-console">$ ./cum hello.tree hello.o
+</code></pre>
+<p><code>hello.o</code> is most common object file. 
+We can analyze it with <code>readelf</code> or <code>objdump</code>:</p>
+<pre><code class="language-console">$ readelf -W -a hello.o
+</code></pre>
+<p>Now let's link <code>hello.o</code> relocatable object file. 
+Note that the <code>ld</code> arguments and dynamic linker <strong>may differ</strong>:</p>
+<pre><code class="language-console">$ ld -o hello hello.o asslib.o /lib64/libc.so.6 -I/lib64/ld-linux-x86-64.so.2 
+</code></pre>
+<blockquote>
+<p><strong>Note!</strong> You can link standard Assert library dynamically:</p>
+<pre><code class="language-console">ld -o hello hello.o asslib.so /lib64/libc.so.6 -I/lib64/ld-linux-x86-64.so.2 
+</code></pre>
+<p>But don't forget to add <code>asslib.so</code> to the linker <strong>PATH</strong>.</p>
+</blockquote>
+<p>That's it! We can run <code>./hello</code> program:</p>
+<pre><code class="language-console">$ ./hello
+448378203247
+</code></pre>
 
                     </main>
 

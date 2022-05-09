@@ -139,8 +139,96 @@
 <p><em>by Denis Dedkov</em></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<p>In this chapter, we’ll discuss:</p>
+<ul>
+<li>Installing Assert compilers on Linux</li>
+<li>Writing <code>Hello, world!</code> example</li>
+<li>Compiled binary linkage with <code>ld</code></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<p>The following steps install the latest stable version of the Assert compiler. 
+I can't ensure that all the examples in the book that compile will 
+continue to compile with newer compiler versions. The output might differ strongly 
+between versions, because <strong>I can change everything at any moment</strong>.</p>
+<blockquote>
+<h2 id="command-line-notation"><a class="header" href="#command-line-notation">Command Line Notation</a></h2>
+<p>In this chapter, we’ll show some commands used in the terminal. 
+Lines that you should enter in a terminal all start with <code>$</code>. 
+You don’t need to type in the <code>$</code> character; it indicates the start of each command. 
+Lines that don’t start with <code>$</code> typically show the output of the previous command. </p>
+</blockquote>
+<h2 id="installing-compilers-on-linux"><a class="header" href="#installing-compilers-on-linux">Installing compilers on Linux</a></h2>
+<p>Clone the official Assert repository:</p>
+<pre><code class="language-console">$ git clone https://github.com/d3phys/assert-lang
+$ cd assert-lang
+</code></pre>
+<p>Checkout <code>stable</code> branch:</p>
+<pre><code class="language-console">$ git checkout stable
+</code></pre>
+<p>Build sources:</p>
+<pre><code class="language-console">$ make
+</code></pre>
+<p>Now you have three applications in your current folder:</p>
+<ul>
+<li><code>./tr</code>  - front-end <strong>code</strong> to <strong>AST</strong> compiler.</li>
+<li><code>./cum</code> - back-end <strong>AST</strong> to <strong>AMD x86-64</strong> compiler. </li>
+<li><code>./rev</code> - front-end <strong>AST</strong> to <strong>code</strong> decompiler. </li>
+</ul>
+<p>Check <a href="hello-world.html">Hello, World!</a> example to learn how to use them.</p>
+<h2 id="updating-and-uninstalling"><a class="header" href="#updating-and-uninstalling">Updating and Uninstalling</a></h2>
+<p>After you’ve installed Assert via git, <strong>updating</strong> to the latest version is easy. 
+Pull the updates and run make again.</p>
+<pre><code class="language-console">$ git pull
+$ make
+</code></pre>
+<p>To <strong>uninstall</strong> Assert remove assert-lang local repository from your PC:</p>
+<pre><code class="language-console">$ ls
+... ... assert-lang ... ...
+$ rm -R assert-lang
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello, World!</a></h1>
+<p>Now that you’ve installed Assert compilers, let’s write your first Assert program. 
+It’s traditional when learning a new language to write a little program that prints 
+the text <code>Hello, world!</code> to the screen, but we can't write it because Assert language
+does not support string literals <code>:D</code></p>
+<p>That's why we will write program, that prints <code>448378203247</code> or <code>0x68656c6c6f</code>.
+What means <code>olleh</code> (<code>hello</code> stored in integer variable in <em>little-endian mode</em>).</p>
+<p>Create and edit <code>hello.ass</code> file:</p>
+<pre><code class="language-console">$ touch hello.ass
+$ vi hello.ass
+</code></pre>
+<p>Write the following code:</p>
+<pre><code>dump main()
+{
+        assert(out(448378203247));
+        return 0;
+}
+</code></pre>
+<p>Now let's compile <code>hello.ass</code> file.
+At first we have to compile <a href="appendix-abstract-syntax-tree.html">AST</a>:</p>
+<pre><code class="language-console">$ ./tr hello.ass hello.tree
+</code></pre>
+<p>Than compile the binary with <code>./cum</code>:</p>
+<pre><code class="language-console">$ ./cum hello.tree hello.o
+</code></pre>
+<p><code>hello.o</code> is most common object file. 
+We can analyze it with <code>readelf</code> or <code>objdump</code>:</p>
+<pre><code class="language-console">$ readelf -W -a hello.o
+</code></pre>
+<p>Now let's link <code>hello.o</code> relocatable object file. 
+Note that the <code>ld</code> arguments and dynamic linker <strong>may differ</strong>:</p>
+<pre><code class="language-console">$ ld -o hello hello.o asslib.o /lib64/libc.so.6 -I/lib64/ld-linux-x86-64.so.2 
+</code></pre>
+<blockquote>
+<p><strong>Note!</strong> You can link standard Assert library dynamically:</p>
+<pre><code class="language-console">ld -o hello hello.o asslib.so /lib64/libc.so.6 -I/lib64/ld-linux-x86-64.so.2 
+</code></pre>
+<p>But don't forget to add <code>asslib.so</code> to the linker <strong>PATH</strong>.</p>
+</blockquote>
+<p>That's it! We can run <code>./hello</code> program:</p>
+<pre><code class="language-console">$ ./hello
+448378203247
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="common-programming-concepts"><a class="header" href="#common-programming-concepts">Common Programming Concepts</a></h1>
 <p>Specifically, you’ll learn about variables, basic types, functions, comments, and control flow. 
 These basics will give you a strong starting point.</p>
