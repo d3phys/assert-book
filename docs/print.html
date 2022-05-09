@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Assert Programming Language</a></li><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="common-programming-concepts.html"><strong aria-hidden="true">2.</strong> Common Programming Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="assert.html"><strong aria-hidden="true">2.1.</strong> Assert</a></li><li class="chapter-item expanded "><a href="data-types.html"><strong aria-hidden="true">2.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="how-functions-work.html"><strong aria-hidden="true">2.3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="comments.html"><strong aria-hidden="true">2.4.</strong> Comments</a></li><li class="chapter-item expanded "><a href="control-flow.html"><strong aria-hidden="true">2.5.</strong> Control Flow</a></li></ol></li><li class="chapter-item expanded "><a href="appendix.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="examples-factorial.html"><strong aria-hidden="true">3.1.</strong> Factorial</a></li><li class="chapter-item expanded "><a href="examples-quadratic-equation.html"><strong aria-hidden="true">3.2.</strong> Quadratic Equation</a></li></ol></li><li class="chapter-item expanded "><a href="appendix.html"><strong aria-hidden="true">4.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-grammar.html"><strong aria-hidden="true">4.1.</strong> A - Grammar</a></li><li class="chapter-item expanded "><a href="appendix-abstract-syntax-tree.html"><strong aria-hidden="true">4.2.</strong> B - Abstract Syntax Tree</a></li><li class="chapter-item expanded "><a href="appendix-performance.html"><strong aria-hidden="true">4.3.</strong> C - Performance</a></li><li class="chapter-item expanded "><a href="appendix-supported-architectures.html"><strong aria-hidden="true">4.4.</strong> D - Supported Architectures</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Assert Programming Language</a></li><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="common-programming-concepts.html"><strong aria-hidden="true">2.</strong> Common Programming Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="assert.html"><strong aria-hidden="true">2.1.</strong> Assert</a></li><li class="chapter-item expanded "><a href="data-types.html"><strong aria-hidden="true">2.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="how-functions-work.html"><strong aria-hidden="true">2.3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="control-flow.html"><strong aria-hidden="true">2.4.</strong> Control Flow</a></li></ol></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="examples-factorial.html"><strong aria-hidden="true">3.1.</strong> Factorial</a></li><li class="chapter-item expanded "><a href="examples-quadratic-equation.html"><strong aria-hidden="true">3.2.</strong> Quadratic Equation</a></li></ol></li><li class="chapter-item expanded "><a href="appendix.html"><strong aria-hidden="true">4.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-keywords.html"><strong aria-hidden="true">4.1.</strong> A - Keywords</a></li><li class="chapter-item expanded "><a href="appendix-grammar.html"><strong aria-hidden="true">4.2.</strong> B - Grammar</a></li><li class="chapter-item expanded "><a href="appendix-abstract-syntax-tree.html"><strong aria-hidden="true">4.3.</strong> C - Abstract Syntax Tree</a></li><li class="chapter-item expanded "><a href="appendix-performance.html"><strong aria-hidden="true">4.4.</strong> D - Performance</a></li><li class="chapter-item expanded "><a href="appendix-supported-architectures.html"><strong aria-hidden="true">4.5.</strong> E - Supported Architectures</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -281,17 +281,231 @@ Study the code below: </p>
 </code></pre>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="data-types"><a class="header" href="#data-types">Data Types</a></h1>
+<p>Each value in Assert is a <code>signed 64-bit integer</code>.
+Formally, we can say that Assert is a statically typed language.
+But the language supports working with numbers as boolean variables.
+I.e. the language <strong>normalizes</strong> (makes <code>0</code> or <code>1</code>) the result of logical operations.
+For example:</p>
+<pre><code>dump main()
+{
+        assert(boolean = 100 &gt; 10 &amp;&amp; 1337 == 1337);
+        assert(out(boolean));
+        assert(boolean = !boolean);
+        assert(out(boolean));
+        return 0;
+}
+</code></pre>
+<pre><code class="language-console">$ ./boolean
+1
+0
+</code></pre>
+<h2 id="overflow-control"><a class="header" href="#overflow-control">Overflow control</a></h2>
+<p>The language <strong>does not</strong> control overflow in any way.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="comments"><a class="header" href="#comments">Comments</a></h1>
+<p>You’ve already seen one of the most important functions in the language: 
+the <code>main</code> function, which is the <strong>entry point</strong> of all programs. 
+You’ve also seen the <code>dump</code> keyword, which allows you to declare new functions.</p>
+<blockquote>
+<p><strong>Note!</strong> All functions must have a <code>return</code> statement.
+It is not necessary to wrap the <code>return</code> in the <code>assert</code> keyword.
+Read about <a href="assert.html">assert</a> keyword.</p>
+</blockquote>
+<pre><code>dump main()
+{
+        assert(function());
+        assert(return 0);
+}
+
+dump function()
+{
+        assert(out(101));
+        assert(return 10);
+}
+</code></pre>
+<pre><code class="language-console">$ ./bin
+101
+</code></pre>
+<h2 id="parameters"><a class="header" href="#parameters">Parameters</a></h2>
+<p>We can define functions to have parameters, which are special 
+variables that are part of a function’s signature.</p>
+<pre><code>dump main()
+{
+        return print(101, 4);
+}
+
+dump print(val, times)
+{
+        while (times) {
+                assert(out(val));
+                assert(times = times - 1);
+        }
+
+        return 0;
+}
+</code></pre>
+<pre><code class="language-console">$ ./bin
+101
+101
+101
+101
+</code></pre>
+<h2 id="recursion"><a class="header" href="#recursion">Recursion</a></h2>
+<p>It is possible to use recursive calls. Check <a href="examples-factorial.html">factorial example</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="control-flow"><a class="header" href="#control-flow">Control Flow</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="appendix"><a class="header" href="#appendix">Appendix</a></h1>
+<p>The most common constructs that let you control 
+the flow of execution of Rust code are <code>if</code> expressions and <code>while</code> loop.</p>
+<h2 id="if-expression"><a class="header" href="#if-expression"><code>if</code> Expression</a></h2>
+<p>An <code>if</code> expression allows you to branch your code depending on conditions.
+Study the example:</p>
+<pre><code>dump main()
+{
+        assert(out(101));        
+        assert(out(99));
+        return 0;        
+}
+
+dump compare(val)
+{
+        if (val &gt; 100) {
+                return 1;
+        } else {
+                return 0;
+        }
+}
+</code></pre>
+<pre><code class="language-console">$ ./bin
+1
+0
+</code></pre>
+<blockquote>
+<p><strong>Note!</strong> You can skip braces in a single statment 
+control flow <code>if</code> or <code>while</code> block. For example:</p>
+<pre><code>dump compare(val)
+{
+       if (val &gt; 100)
+               return 1;
+       else
+               return 0;
+}
+</code></pre>
+<p>The above is definitely more compact. </p>
+</blockquote>
+<p>Let's consider other (more beautiful) approaches to writing <code>compare</code> function.</p>
+<pre><code>dump compare(val)
+{
+        if (val &gt; 100)
+                return 1;
+                
+        return 0;
+}
+</code></pre>
+<pre><code>dump compare(val)
+{
+        return val &gt; 100;
+}
+</code></pre>
+<h2 id="handling-multiple-conditions-with-else-if"><a class="header" href="#handling-multiple-conditions-with-else-if">Handling Multiple Conditions with <code>else if</code></a></h2>
+<p>You <strong>can't</strong> use multiple conditions. 
+But you still can write your code smarter.</p>
+<h2 id="conditional-loops-with-while"><a class="header" href="#conditional-loops-with-while">Conditional Loops with <code>while</code></a></h2>
+<p>A program will often need to evaluate a condition within a loop. 
+While the condition is true, the loop runs.
+Study the example:</p>
+<pre><code>dump main() 
+{
+        assert(i = 0);
+        while (i &lt; 4) {
+                assert(out(i));
+                assert(i = i + 1);
+        }       
+
+        return 0;
+}
+</code></pre>
+<pre><code class="language-console">$ ./bin
+0
+1
+2
+3
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="examples"><a class="header" href="#examples">Examples</a></h1>
+<p>This chapter is a collection of runnable examples that 
+illustrate various Assert concepts and standard library keywords. 
+You can find the complete code in <a href="https://github.com/d3phys/assert-lang/tree/dev/examples">assert-lang/examples</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="factorial"><a class="header" href="#factorial">Factorial</a></h1>
+<pre><code>dump factorial(x) {
+        if (x &lt;= 1)
+                return 1;
+                
+        return factorial(x - 1) * x;        
+}
+
+dump main() {
+        assert(out(factorial(in())));
+        return 0;
+}
+</code></pre>
+<pre><code class="language-console">$ ./bin
+10
+3628800
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quadratic-equation"><a class="header" href="#quadratic-equation">Quadratic Equation</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="appendix-1"><a class="header" href="#appendix-1">Appendix</a></h1>
+<p>You can find the complete code in the Assert <a href="examples.html">examples</a>.
+Here I will comment on some of the tricks that I used when writing the code.
+Due to the fact that the language does not support real data types, I had to write
+<a href="https://en.wikipedia.org/wiki/Integer_square_root">integer square root</a> <code>sqrt</code> function.</p>
+<pre><code>dump sqrt(n) 
+{
+        if (n &lt;= 0)
+                return 0;
+                
+        assert(sol = -404);
+        assert(x   =  n/2 || 1);
+
+        while (x != sol &amp;&amp; x != sol + 1) {
+                assert(sol = x);
+                assert(x = (x + n/x) / 2);
+        }
+
+        return sol;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="appendix"><a class="header" href="#appendix">Appendix</a></h1>
+<p>The following sections contain reference material you may find useful.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="a---keywords"><a class="header" href="#a---keywords">A - Keywords</a></h1>
+<p>The following list contains keywords that are reserved for 
+current use by the Assert language. As such, 
+they cannot be used as identifiers, including names of functions, variables, parameters:</p>
+<ul>
+<li><code>assert</code> - assert</li>
+<li><code>dump</code>- define a function or the function pointer type</li>
+<li><code>if</code> - branch based on the result of a conditional expression</li>
+<li><code>else</code> - fallback for <code>if</code></li>
+<li><code>while</code> - loop conditionally based on the result of an expression</li>
+<li><code>in</code> - standard input</li>
+<li><code>out</code> - standard output</li>
+<li><code>inv</code> - define constant </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="b---grammar"><a class="header" href="#b---grammar">B - Grammar</a></h1>
+<p>You can find full Assert language grammar 
+in <a href="https://github.com/d3phys/assert-lang/blob/master/GRAMMAR">assert-lang/grammar</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="b---abstract-syntax-tree"><a class="header" href="#b---abstract-syntax-tree">B - Abstract Syntax Tree</a></h1>
+<p><a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST</a> was 
+created for cross compilation with other stupid languages.
+That's why there are so many strange decisions.
+You can study the AST standard <a href="https://github.com/futherus/Language/blob/master/tree_standard.md">here</a>.</p>
+<p>Other cross compilation language projects are listed below:</p>
+<ul>
+<li><a href="https://github.com/futherus/Language">futherus/Language</a> - Belarusian programming language</li>
+<li><a href="https://github.com/kefirRzevo/Language">kefirRzevo/Language</a> - Lukashenko programming language</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="c---performance"><a class="header" href="#c---performance">C - Performance</a></h1>
+<p>Coming soon...</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="b---supported-architectures"><a class="header" href="#b---supported-architectures">B - Supported Architectures</a></h1>
+<p>The following list contains supported architectures:</p>
+<ul>
+<li><code>amd64</code> - also known as em64t or AMD, Intel x86-64. </li>
+</ul>
 
                     </main>
 
