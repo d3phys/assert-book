@@ -1,0 +1,6 @@
+[book]
+authors = ["Denis Dedkov"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Assert Book"
