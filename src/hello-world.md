@@ -5,7 +5,8 @@ the text `Hello, world!` to the screen, but we can't write it because Assert lan
 does not support string literals `:D`
 
 That's why we will write program, that prints `448378203247` or `0x68656c6c6f`.
-What means `olleh` (`hello` stored in integer variable in *little-endian mode*).
+What means `hello`. To be more careful, we would have to print `0x6f6c6c6568` (or `elloh`), 
+because that's how the string would be stored in *little-endian* mode.
 
 Create and edit `hello.ass` file:
 ```console
@@ -45,7 +46,7 @@ Note that the `ld` arguments and dynamic linker **may differ**:
 $ ld -o hello hello.o asslib.o /lib64/libc.so.6 -I/lib64/ld-linux-x86-64.so.2 
 ``` 
 
-> **Note!** You can link standard Assert library dynamically:
+> **Note!** You can link standard Assert library **dynamically**:
 > ```console
 > ld -o hello hello.o asslib.so /lib64/libc.so.6 -I/lib64/ld-linux-x86-64.so.2 
 > ```

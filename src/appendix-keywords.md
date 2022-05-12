@@ -8,6 +8,6 @@ they cannot be used as identifiers, including names of functions, variables, par
 * `if` - branch based on the result of a conditional expression
 * `else` - fallback for `if`
 * `while` - loop conditionally based on the result of an expression
-* `in` - standard input
-* `out` - standard output
+* `in` - standard input ([asslib](appendix-standard-library.md))
+* `out` - standard output ([asslib](appendix-standard-library.md))
 * `inv` - define constant 

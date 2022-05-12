@@ -1,6 +1,6 @@
 # Control Flow
 The most common constructs that let you control 
-the flow of execution of Rust code are `if` expressions and `while` loop.
+the flow of execution of Assert code are `if` expressions and `while` loop.
 
 ## `if` Expression
 An `if` expression allows you to branch your code depending on conditions.
@@ -61,6 +61,12 @@ dump compare(val)
         return val > 100;
 }
 ```
+And finally:
+```
+dump compare(val)
+        return val > 100;
+```
+
 ## Handling Multiple Conditions with `else if`
 
 You **can't** use multiple conditions. 

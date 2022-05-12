@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>A - Keywords - Assert Book</title>
+        <title>F - Standard Library - Assert Book</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Assert Programming Language</a></li><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="common-programming-concepts.html"><strong aria-hidden="true">2.</strong> Common Programming Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="assert.html"><strong aria-hidden="true">2.1.</strong> Assert</a></li><li class="chapter-item expanded "><a href="data-types.html"><strong aria-hidden="true">2.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="how-functions-work.html"><strong aria-hidden="true">2.3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="control-flow.html"><strong aria-hidden="true">2.4.</strong> Control Flow</a></li><li class="chapter-item expanded "><a href="scoping-rules.html"><strong aria-hidden="true">2.5.</strong> Scoping Rules</a></li></ol></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="examples-factorial.html"><strong aria-hidden="true">3.1.</strong> Factorial</a></li><li class="chapter-item expanded "><a href="examples-quadratic-equation.html"><strong aria-hidden="true">3.2.</strong> Quadratic Equation</a></li></ol></li><li class="chapter-item expanded "><a href="appendix.html"><strong aria-hidden="true">4.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-keywords.html" class="active"><strong aria-hidden="true">4.1.</strong> A - Keywords</a></li><li class="chapter-item expanded "><a href="appendix-grammar.html"><strong aria-hidden="true">4.2.</strong> B - Grammar</a></li><li class="chapter-item expanded "><a href="appendix-abstract-syntax-tree.html"><strong aria-hidden="true">4.3.</strong> C - Abstract Syntax Tree</a></li><li class="chapter-item expanded "><a href="appendix-performance.html"><strong aria-hidden="true">4.4.</strong> D - Performance</a></li><li class="chapter-item expanded "><a href="appendix-supported-architectures.html"><strong aria-hidden="true">4.5.</strong> E - Supported Architectures</a></li><li class="chapter-item expanded "><a href="appendix-standard-library.html"><strong aria-hidden="true">4.6.</strong> F - Standard Library</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Assert Programming Language</a></li><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="common-programming-concepts.html"><strong aria-hidden="true">2.</strong> Common Programming Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="assert.html"><strong aria-hidden="true">2.1.</strong> Assert</a></li><li class="chapter-item expanded "><a href="data-types.html"><strong aria-hidden="true">2.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="how-functions-work.html"><strong aria-hidden="true">2.3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="control-flow.html"><strong aria-hidden="true">2.4.</strong> Control Flow</a></li><li class="chapter-item expanded "><a href="scoping-rules.html"><strong aria-hidden="true">2.5.</strong> Scoping Rules</a></li></ol></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="examples-factorial.html"><strong aria-hidden="true">3.1.</strong> Factorial</a></li><li class="chapter-item expanded "><a href="examples-quadratic-equation.html"><strong aria-hidden="true">3.2.</strong> Quadratic Equation</a></li></ol></li><li class="chapter-item expanded "><a href="appendix.html"><strong aria-hidden="true">4.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-keywords.html"><strong aria-hidden="true">4.1.</strong> A - Keywords</a></li><li class="chapter-item expanded "><a href="appendix-grammar.html"><strong aria-hidden="true">4.2.</strong> B - Grammar</a></li><li class="chapter-item expanded "><a href="appendix-abstract-syntax-tree.html"><strong aria-hidden="true">4.3.</strong> C - Abstract Syntax Tree</a></li><li class="chapter-item expanded "><a href="appendix-performance.html"><strong aria-hidden="true">4.4.</strong> D - Performance</a></li><li class="chapter-item expanded "><a href="appendix-supported-architectures.html"><strong aria-hidden="true">4.5.</strong> E - Supported Architectures</a></li><li class="chapter-item expanded "><a href="appendix-standard-library.html" class="active"><strong aria-hidden="true">4.6.</strong> F - Standard Library</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -134,30 +134,39 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="a---keywords"><a class="header" href="#a---keywords">A - Keywords</a></h1>
-<p>The following list contains keywords that are reserved for 
-current use by the Assert language. As such, 
-they cannot be used as identifiers, including names of functions, variables, parameters:</p>
+                        <h1 id="f---standard-library"><a class="header" href="#f---standard-library">F - Standard Library</a></h1>
+<p>Assert Standard Library (or <strong>asslib</strong>) is an interface between 
+an abstract Assert language and an operating system.
+With its help, the execution of some <a href="appendix-keywords.html">keywords</a> is implemented.</p>
+<p>If you dump a compiled file, you can see standard names in the 
+ELF-symtab section (6-7 in the output below):</p>
+<pre><code class="language-console">$ readelf -s compiled.o
+
+Symbol table '.symtab' contains 9 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS hello.o
+     2: 0000000000000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 0000000000000000     0 SECTION LOCAL  DEFAULT    2 .rodata
+     4: 0000000000000000     0 SECTION LOCAL  DEFAULT    3 .data
+     5: 0000000000000000     0 SECTION LOCAL  DEFAULT    4 .bss
+     6: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT  UND __ass_print
+     7: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT  UND __ass_scan
+     8: 0000000000000038     0 NOTYPE  GLOBAL DEFAULT    1 _start
+</code></pre>
+<h2 id="sources"><a class="header" href="#sources">Sources</a></h2>
+<p>You can find the source code in the official Assert repository:</p>
 <ul>
-<li><code>assert</code> - assert</li>
-<li><code>dump</code>- define a function or the function pointer type</li>
-<li><code>if</code> - branch based on the result of a conditional expression</li>
-<li><code>else</code> - fallback for <code>if</code></li>
-<li><code>while</code> - loop conditionally based on the result of an expression</li>
-<li><code>in</code> - standard input (<a href="appendix-standard-library.html">asslib</a>)</li>
-<li><code>out</code> - standard output (<a href="appendix-standard-library.html">asslib</a>)</li>
-<li><code>inv</code> - define constant </li>
+<li><a href="https://github.com/d3phys/assert-lang/blob/master/asslib.s">asslib.s</a> - standard library implementation</li>
+<li><a href="https://github.com/d3phys/assert-lang/blob/master/STDLIB">STDLIB</a>   - ELF64 configuration file.</li>
 </ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="appendix.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="appendix-supported-architectures.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a rel="next" href="appendix-grammar.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
                     </nav>
@@ -165,11 +174,8 @@ they cannot be used as identifiers, including names of functions, variables, par
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="appendix.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="appendix-supported-architectures.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a rel="next" href="appendix-grammar.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 

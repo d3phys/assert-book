@@ -12,6 +12,7 @@
     - [Data Types](data-types.md)
     - [Functions](how-functions-work.md)
     - [Control Flow](control-flow.md)
+    - [Scoping Rules](scoping-rules.md)
 
 ## Examples
 - [Examples](examples.md)
@@ -25,3 +26,4 @@
     - [C - Abstract Syntax Tree](appendix-abstract-syntax-tree.md)
     - [D - Performance](appendix-performance.md)
     - [E - Supported Architectures](appendix-supported-architectures.md)
+    - [F - Standard Library](appendix-standard-library.md)

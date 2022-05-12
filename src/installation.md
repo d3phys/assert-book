@@ -13,26 +13,32 @@ between versions, because **I can change everything at any moment**.
 
 ## Installing compilers on Linux
 
-Clone the official Assert repository:
+Clone the [official Assert repository](https://github.com/d3phys/assert-lang):
 ```console
-$ git clone https://github.com/d3phys/assert-lang
+$ git clone --recurse-submodules https://github.com/d3phys/assert-lang.git
+Cloning into 'assert-lang'...
 $ cd assert-lang
 ```
 
 Checkout `stable` branch:
 ```console
-$ git checkout stable
+$ git checkout origin/stable
 ```
 
 Build sources:
 ```console
 $ make
+...
+Assert language is compiled now!
+Read: https://d3phys.github.io/assert-book/
 ```
 
 Now you have three applications in your current folder:
 * `./tr`  - front-end **code** to **AST** compiler.
 * `./cum` - back-end **AST** to **AMD x86-64** compiler. 
 * `./rev` - front-end **AST** to **code** decompiler. 
+
+Also you have `asslib.o` [standard library](appendix-standard-library.md) relocatable object file.
 
 Check [Hello, World!](hello-world.md) example to learn how to use them.
 

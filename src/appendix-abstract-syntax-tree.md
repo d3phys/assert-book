@@ -7,5 +7,5 @@ You can study the AST standard [here](https://github.com/futherus/Language/blob/
 Other cross compilation language projects are listed below:
 * [futherus/Language](https://github.com/futherus/Language) - Belarusian programming language
 * [kefirRzevo/Language](https://github.com/kefirRzevo/Language) - Lukashenko programming language
-
+* [k-kashapov/lang](https://github.com/k-kashapov/lang) - The language of jokes
 
