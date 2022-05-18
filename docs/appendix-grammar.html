@@ -135,8 +135,20 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="b---grammar"><a class="header" href="#b---grammar">B - Grammar</a></h1>
-<p>You can find full Assert language grammar 
-in <a href="https://github.com/d3phys/assert-lang/blob/master/grammar">assert-lang/grammar</a>.</p>
+<p>Assert uses <a href="https://en.wikipedia.org/wiki/Context-free_grammar">context-free grammar</a> (CFG). 
+The notation is a mixture of <a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form">EBNF</a> and my own preferences. 
+The notation is described below. You can find full Assert language grammar 
+here: <a href="https://github.com/d3phys/assert-lang/blob/master/grammar">assert-lang/grammar</a>.</p>
+<table><thead><tr><th>Usage</th><th>Notation</th></tr></thead><tbody>
+<tr><td>definition</td><td>=</td></tr>
+<tr><td>concatenation</td><td>,</td></tr>
+<tr><td>termination</td><td>;</td></tr>
+<tr><td>alternation</td><td>|</td></tr>
+<tr><td>optional</td><td>[ ... ]</td></tr>
+<tr><td>repetition</td><td>{ ... }</td></tr>
+<tr><td>grouping</td><td>( ... )</td></tr>
+<tr><td>terminal string</td><td>&quot; ... &quot;</td></tr>
+</tbody></table>
 
                     </main>
 
