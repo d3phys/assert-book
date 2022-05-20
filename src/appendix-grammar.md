@@ -6,7 +6,7 @@ here: [assert-lang/grammar](https://github.com/d3phys/assert-lang/blob/master/gr
 
 | Usage            | Notation  |
 |------------------|-----------|
-| definition       | =         |
+| definition       | ->        |
 | concatenation    | ,         |
 | termination      | ;         |
 | alternation      | \|        |
