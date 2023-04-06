@@ -1,8 +1,12 @@
 # C - Performance
-Of course, there are *some* performance issues. 
+
+## LLVM IR Compiler
+It generates LLVM IR. You can run all possible optimizations that llvm supports.
+
+## Legacy Compiler
+Of course, there are *some* performance issues.
 Let's compare the performance of the C compiler and the Assert compiler using the factorial as an example.
 
-Here is the C code and compiler optimization flags below:
 ```
 #include <stdio.h>
 #include <stdint.h>
@@ -50,6 +54,9 @@ dump main() {
         return 0;
 }
 ```
+
+
+Here is the C code and compiler optimization flags below:
 
 ```console
 $ ./tr factorial.ass factorial.tree

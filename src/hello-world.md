@@ -29,7 +29,10 @@ At first we have to compile [AST](appendix-abstract-syntax-tree.md):
 $ ./tr hello.ass hello.tree
 ```
 
-Than compile the binary with `./cum`:
+Now you have to choose appropriate back-end compiler.
+
+## Legacy Compiler
+To use legacy compiler compile the binary with `./cum`:
 ```console
 $ ./cum hello.tree hello.o
 ``` 
@@ -53,6 +56,46 @@ $ ld -o hello hello.o asslib.o /lib64/libc.so.6 -I/lib64/ld-linux-x86-64.so.2
 > But don't forget to add `asslib.so` to the linker **PATH**.
 > 
 
+
+## LLVM IR compiler
+To use llvm compiler run the following command:
+```console
+$ ./cum-llvm hello.tree hello.ir
+```
+
+`hello.ir` is generated [LLVM IR](https://llvm.org/docs/LangRef.html). Possible output is listed below:
+```console
+$ cat hello.ir
+; ModuleID = 'hello.ir'
+source_filename = "hello.ir"
+
+define void @__ass_globals_init() {
+.entry:
+  ret void
+}
+
+declare i64 @__ass_print(i64)
+
+declare i64 @__ass_scan()
+
+define i64 @main() {
+.entry:
+  %0 = call i64 @__ass_print(i64 448378203247)
+  ret i64 0
+}
+```
+
+Then you can compile it with [llc](https://llvm.org/docs/CommandGuide/llc.html):
+```console
+$ llc hello.ir -O2 -o hello.o
+```
+
+Next link `hello.o` with standard Assert libarary:
+```console
+$ gcc hello.o asslib-llvm.o -o hello
+```
+
+## Running program
 That's it! We can run `./hello` program:
 ```console
 $ ./hello

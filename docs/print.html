@@ -5,8 +5,10 @@
         <meta charset="UTF-8">
         <title>Assert Book</title>
         <meta name="robots" content="noindex" />
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -17,25 +19,29 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,7 +57,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -63,7 +69,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -84,7 +90,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -94,7 +100,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -111,6 +117,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -124,8 +131,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -154,16 +162,16 @@ Hundreds of companies, large and small, <strong>don't</strong> use Assert in pro
 <li>Compiled binary linkage with <code>ld</code></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
-<p>The following steps install the latest stable version of the Assert compiler. 
-I can't ensure that all the examples in the book that compile will 
-continue to compile with newer compiler versions. The output might differ strongly 
+<p>The following steps install the latest stable version of the Assert compiler.
+I can't ensure that all the examples in the book that compile will
+continue to compile with newer compiler versions. The output might differ strongly
 between versions, because <strong>I can change everything at any moment</strong>.</p>
 <blockquote>
 <h2 id="command-line-notation"><a class="header" href="#command-line-notation">Command Line Notation</a></h2>
-<p>In this chapter, we’ll show some commands used in the terminal. 
-Lines that you should enter in a terminal all start with <code>$</code>. 
-You don’t need to type in the <code>$</code> character; it indicates the start of each command. 
-Lines that don’t start with <code>$</code> typically show the output of the previous command. </p>
+<p>In this chapter, we’ll show some commands used in the terminal.
+Lines that you should enter in a terminal all start with <code>$</code>.
+You don’t need to type in the <code>$</code> character; it indicates the start of each command.
+Lines that don’t start with <code>$</code> typically show the output of the previous command.</p>
 </blockquote>
 <h2 id="installing-compilers-on-linux"><a class="header" href="#installing-compilers-on-linux">Installing compilers on Linux</a></h2>
 <p>Clone the <a href="https://github.com/d3phys/assert-lang">official Assert repository</a>:</p>
@@ -180,16 +188,17 @@ $ cd assert-lang
 Assert language is compiled now!
 Read: https://d3phys.github.io/assert-book/
 </code></pre>
-<p>Now you have three applications in your current folder:</p>
+<p>Now you have four applications in your current folder:</p>
 <ul>
-<li><code>./tr</code>  - front-end <strong>code</strong> to <strong>AST</strong> compiler.</li>
-<li><code>./cum</code> - back-end <strong>AST</strong> to <strong>AMD x86-64</strong> compiler. </li>
-<li><code>./rev</code> - front-end <strong>AST</strong> to <strong>code</strong> decompiler. </li>
+<li><code>./tr</code>       - front-end <strong>code</strong> to <strong>AST</strong> compiler.</li>
+<li><code>./cum</code>      - back-end <strong>AST</strong> to <strong>AMD x86-64</strong> compiler.</li>
+<li><code>./cum-llvm</code> - back-end <strong>AST</strong> to <strong>LLVM IR</strong> compiler.</li>
+<li><code>./rev</code>      - front-end <strong>AST</strong> to <strong>code</strong> decompiler.</li>
 </ul>
-<p>Also you have <code>asslib.o</code> <a href="appendix-standard-library.html">standard library</a> relocatable object file.</p>
+<p>Also you have <code>asslib.o</code> and <code>asslib-llvm.o</code> <a href="appendix-standard-library.html">standard library</a> relocatable object files.</p>
 <p>Check <a href="hello-world.html">Hello, World!</a> example to learn how to use them.</p>
 <h2 id="updating-and-uninstalling"><a class="header" href="#updating-and-uninstalling">Updating and Uninstalling</a></h2>
-<p>After you’ve installed Assert via git, <strong>updating</strong> to the latest version is easy. 
+<p>After you’ve installed Assert via git, <strong>updating</strong> to the latest version is easy.
 Pull the updates and run make again.</p>
 <pre><code class="language-console">$ git pull
 $ make
@@ -222,7 +231,9 @@ $ vi hello.ass
 At first we have to compile <a href="appendix-abstract-syntax-tree.html">AST</a>:</p>
 <pre><code class="language-console">$ ./tr hello.ass hello.tree
 </code></pre>
-<p>Than compile the binary with <code>./cum</code>:</p>
+<p>Now you have to choose appropriate back-end compiler.</p>
+<h2 id="legacy-compiler"><a class="header" href="#legacy-compiler">Legacy Compiler</a></h2>
+<p>To use legacy compiler compile the binary with <code>./cum</code>:</p>
 <pre><code class="language-console">$ ./cum hello.tree hello.o
 </code></pre>
 <p><code>hello.o</code> is most common object file. 
@@ -239,6 +250,37 @@ Note that the <code>ld</code> arguments and dynamic linker <strong>may differ</s
 </code></pre>
 <p>But don't forget to add <code>asslib.so</code> to the linker <strong>PATH</strong>.</p>
 </blockquote>
+<h2 id="llvm-ir-compiler"><a class="header" href="#llvm-ir-compiler">LLVM IR compiler</a></h2>
+<p>To use llvm compiler run the following command:</p>
+<pre><code class="language-console">$ ./cum-llvm hello.tree hello.ir
+</code></pre>
+<p><code>hello.ir</code> is generated <a href="https://llvm.org/docs/LangRef.html">LLVM IR</a>. Possible output is listed below:</p>
+<pre><code class="language-console">$ cat hello.ir
+; ModuleID = 'hello.ir'
+source_filename = &quot;hello.ir&quot;
+
+define void @__ass_globals_init() {
+.entry:
+  ret void
+}
+
+declare i64 @__ass_print(i64)
+
+declare i64 @__ass_scan()
+
+define i64 @main() {
+.entry:
+  %0 = call i64 @__ass_print(i64 448378203247)
+  ret i64 0
+}
+</code></pre>
+<p>Then you can compile it with <a href="https://llvm.org/docs/CommandGuide/llc.html">llc</a>:</p>
+<pre><code class="language-console">$ llc hello.ir -O2 -o hello.o
+</code></pre>
+<p>Next link <code>hello.o</code> with standard Assert libarary:</p>
+<pre><code class="language-console">$ gcc hello.o asslib-llvm.o -o hello
+</code></pre>
+<h2 id="running-program"><a class="header" href="#running-program">Running program</a></h2>
 <p>That's it! We can run <code>./hello</code> program:</p>
 <pre><code class="language-console">$ ./hello
 448378203247
@@ -555,7 +597,7 @@ they cannot be used as identifiers, including names of functions, variables, par
 The notation is a mixture of <a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form">EBNF</a> and my own preferences. 
 The notation is described below. You can find full Assert language grammar 
 here: <a href="https://github.com/d3phys/assert-lang/blob/master/grammar">assert-lang/grammar</a>.</p>
-<table><thead><tr><th>Usage</th><th>Notation</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Usage</th><th>Notation</th></tr></thead><tbody>
 <tr><td>definition</td><td>-&gt;</td></tr>
 <tr><td>concatenation</td><td>,</td></tr>
 <tr><td>termination</td><td>;</td></tr>
@@ -565,7 +607,7 @@ here: <a href="https://github.com/d3phys/assert-lang/blob/master/grammar">assert
 <tr><td>grouping</td><td>( ... )</td></tr>
 <tr><td>terminal string</td><td>&quot; ... &quot;</td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="b---abstract-syntax-tree"><a class="header" href="#b---abstract-syntax-tree">B - Abstract Syntax Tree</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="b---abstract-syntax-tree"><a class="header" href="#b---abstract-syntax-tree">B - Abstract Syntax Tree</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST</a> was 
 created for cross compilation with other stupid languages.
 That's why there are so many strange decisions.
@@ -577,9 +619,11 @@ You can study the AST standard <a href="https://github.com/futherus/Language/blo
 <li><a href="https://github.com/k-kashapov/lang">k-kashapov/lang</a> - The language of jokes</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="c---performance"><a class="header" href="#c---performance">C - Performance</a></h1>
-<p>Of course, there are <em>some</em> performance issues. 
+<h2 id="llvm-ir-compiler-1"><a class="header" href="#llvm-ir-compiler-1">LLVM IR Compiler</a></h2>
+<p>It generates LLVM IR. You can run all possible optimizations that llvm supports.</p>
+<h2 id="legacy-compiler-1"><a class="header" href="#legacy-compiler-1">Legacy Compiler</a></h2>
+<p>Of course, there are <em>some</em> performance issues.
 Let's compare the performance of the C compiler and the Assert compiler using the factorial as an example.</p>
-<p>Here is the C code and compiler optimization flags below:</p>
 <pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdint.h&gt;
 
@@ -622,6 +666,7 @@ dump main() {
         return 0;
 }
 </code></pre>
+<p>Here is the C code and compiler optimization flags below:</p>
 <pre><code class="language-console">$ ./tr factorial.ass factorial.tree
 $ ./cum factorial.tree factorial.o
 $ ld -o factorial factorial.o asslib.o /lib64/libc.so.6 -I/lib64/ld-linux-x86-64.so.2 
@@ -679,6 +724,9 @@ $ ld -o factorial factorial.o asslib.o /lib64/libc.so.6 -I/lib64/ld-linux-x86-64
 <p>Performance is generally a complex thing. But we can conclude 
 that the compiler generates code comparable to the <code>-O0</code> <code>g++</code> option.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="b---supported-architectures"><a class="header" href="#b---supported-architectures">B - Supported Architectures</a></h1>
+<h2 id="llvm-ir-compiler-2"><a class="header" href="#llvm-ir-compiler-2">LLVM IR Compiler</a></h2>
+<p>LLVM IR is a platform-independent intermediate representation that can be used to represent code for any target architecture that is supported by LLVM. </p>
+<h2 id="legacy-compiler-2"><a class="header" href="#legacy-compiler-2">Legacy Compiler</a></h2>
 <p>The following list contains supported architectures:</p>
 <ul>
 <li><code>amd64</code> - also known as em64t or AMD, Intel x86-64. </li>
@@ -706,7 +754,8 @@ Symbol table '.symtab' contains 9 entries:
 <h2 id="sources"><a class="header" href="#sources">Sources</a></h2>
 <p>You can find the source code in the official Assert repository:</p>
 <ul>
-<li><a href="https://github.com/d3phys/assert-lang/blob/master/asslib.s">asslib.s</a> - standard library implementation</li>
+<li><a href="https://github.com/d3phys/assert-lang/blob/master/asslib.s">asslib.s</a> - standard library implementation for legacy backend</li>
+<li><a href="https://github.com/d3phys/assert-lang/blob/master/asslib-llvm.c">asslib-llvm.c</a> - standard library implementation for llvm backend</li>
 <li><a href="https://github.com/d3phys/assert-lang/blob/master/STDLIB">STDLIB</a>   - ELF64 configuration file.</li>
 </ul>
 
@@ -714,31 +763,43 @@ Symbol table '.symtab' contains 9 entries:
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
+
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+
+    </div>
     </body>
 </html>

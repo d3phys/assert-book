@@ -25,6 +25,7 @@ Symbol table '.symtab' contains 9 entries:
 ## Sources
 You can find the source code in the official Assert repository:
 
-* [asslib.s](https://github.com/d3phys/assert-lang/blob/master/asslib.s) - standard library implementation
+* [asslib.s](https://github.com/d3phys/assert-lang/blob/master/asslib.s) - standard library implementation for legacy backend
+* [asslib-llvm.c](https://github.com/d3phys/assert-lang/blob/master/asslib-llvm.c) - standard library implementation for llvm backend
 * [STDLIB](https://github.com/d3phys/assert-lang/blob/master/STDLIB)   - ELF64 configuration file.
 
